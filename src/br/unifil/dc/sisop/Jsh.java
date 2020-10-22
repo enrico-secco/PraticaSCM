@@ -28,7 +28,7 @@ public final class Jsh {
     public static String user_name;
     public static String user_diretorio;
     public static int    user_UID;
-    public static String    barraSistema = System.getProperty("file.separator");
+    public static String barraSistema = System.getProperty("file.separator");
 
     /**
     * Escreve o prompt na saida padrao para o usuário reconhecê-lo e saber que o

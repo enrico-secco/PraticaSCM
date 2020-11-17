@@ -48,16 +48,21 @@ public final class Jsh {
 
         InputStream saidaProcesso = comandoUID.getInputStream();
 
-        byte[] arrSaida = saidaProcesso.readAllBytes();
+        byte[] arrSaida = readAllBytes(saidaProcesso);
 
         user_UID = arrSaida[0];        
 
         System.err.print(user_name + "#" + user_UID + ":" + user_diretorio + "%" );
 
-        }catch(Error e){
+        }catch(Error | IOException e){
             System.err.print(e);
         }
 
+    }
+
+    private static byte[] readAllBytes(InputStream saidaProcesso) {
+
+        return new byte[0];
     }
 
     /**
@@ -80,6 +85,10 @@ public final class Jsh {
 
     
         //throw new RuntimeException("Método ainda não implementado.");
+    }
+
+    public void readAllBytes(){
+
     }
 
     /**
@@ -147,7 +156,7 @@ public final class Jsh {
             valorSaida = p.waitFor();
             InputStream input = p.getInputStream();
 
-            byte[] saida = input.readAllBytes();
+            byte[] saida = readAllBytes(input);
 
             String stgSaida = new String(saida);
 
